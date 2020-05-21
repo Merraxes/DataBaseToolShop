@@ -1,0 +1,23 @@
+// Wybiera klientów którzy posiadają założoną "sprawę"
+
+SELECT Klient.Imie, Klient.Nazwisko
+FROM Klient
+INNER JOIN Sprawa ON Klient.KlientId = Sprawa.KlientId
+
+
+// Wybiera Sprzęt którego nazwa kategorii to "klucze" oraz który został zarezerwowany
+// między 2020.05.02 a 2020.05.18
+
+SELECT * 
+FROM Sprzet
+INNER JOIN Kategoria on Sprzet.KategoriaId = Kategoria.KategoriaId
+INNER JOIN Sprawa on Sprzet.SprzetId = Sprawa.SprzetId
+WHERE Kategoria.Nazwa = "Klucze" AND Sprzet.RezerwacjaOd BETWEEN '2020/05/02' AND '2020.05.18'
+
+
+//Wybiera nazwę sprzetu którego producent ma nazwe Bosh
+
+Select Model.Nazwa
+FROM Model
+INNER JOIN Producent ON Producent.ProducentId = Model.ProducentId
+WHERE Producent.Nazwa = "BOSH" 
